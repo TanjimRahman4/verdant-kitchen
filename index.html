@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,26 +9,42 @@
   <title>VERDANT — Eat well. Feel everything.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
   <script>
+    // Keep the full base design on every device, then layer mobile refinements on top.
+    // User-agent detection is retained as requested; viewport media queries in mobile.css
+    // also protect tablets and narrow browser windows.
     function isMobileDevice() {
-        return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
+      return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase());
     }
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = isMobileDevice() ? "mobile.css" : "style.css";
-    document.head.appendChild(link);
+    if (isMobileDevice()) {
+      const mobileStyles = document.createElement("link");
+      mobileStyles.rel = "stylesheet";
+      mobileStyles.href = "mobile.css";
+      document.head.appendChild(mobileStyles);
+    }
   </script>
-  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="mobile.css">
+  </noscript>
 </head>
+
 <body>
-  <div class="announcement"><span>GOOD FOOD. GOOD MOOD. GOOD FOR YOU.</span><span class="announcement-right">A little greener, every day <i class="bi bi-arrow-up-right"></i></span></div>
+  <div class="announcement"><span>GOOD FOOD. GOOD MOOD. GOOD FOR YOU.</span><span class="announcement-right">A little
+      greener, every day <i class="bi bi-arrow-up-right"></i></span></div>
   <nav class="navbar navbar-expand-lg site-nav sticky-top" aria-label="Main navigation">
     <div class="container nav-shell">
-      <a class="navbar-brand brand" href="#home" aria-label="Verdant home"><span class="brand-mark"><i class="bi bi-flower1"></i></span>VERDANT<span class="brand-dot">.</span></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <a class="navbar-brand brand" href="#home" aria-label="Verdant home"><span class="brand-mark"><i
+            class="bi bi-flower1"></i></span>VERDANT<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-4">
           <li class="nav-item"><a class="nav-link" href="#story">Our philosophy</a></li>
@@ -46,74 +63,309 @@
       <div class="container hero-inner">
         <div class="row align-items-center gy-5">
           <div class="col-lg-6 hero-copy">
-            <div class="eyebrow light-eyebrow reveal"><span class="eyebrow-line"></span> FRESH THINKING, FRESH INGREDIENTS</div>
+            <div class="eyebrow light-eyebrow reveal"><span class="eyebrow-line"></span> FRESH THINKING, FRESH
+              INGREDIENTS</div>
             <h1 class="hero-title reveal">Eat well.<br><em>Feel</em> everything.</h1>
-            <p class="hero-description reveal">A fresh take on feel-good food. Thoughtfully sourced, beautifully made, and always full of life.</p>
-            <div class="hero-actions reveal"><a href="#menu" class="btn-pill btn-leaf">Discover our menu <i class="bi bi-arrow-up-right"></i></a><a href="#story" class="text-link light-link">Our philosophy <span>↗</span></a></div>
-            <div class="hero-footnote reveal"><span class="mini-spark">✳</span><span>REAL INGREDIENTS. NOTHING TO HIDE.</span></div>
+            <p class="hero-description reveal">A fresh take on feel-good food. Thoughtfully sourced, beautifully made,
+              and always full of life.</p>
+            <div class="hero-actions reveal"><a href="#menu" class="btn-pill btn-leaf">Discover our menu <i
+                  class="bi bi-arrow-up-right"></i></a><a href="#story" class="text-link light-link">Our philosophy
+                <span>↗</span></a></div>
+            <div class="hero-footnote reveal"><span class="mini-spark">✳</span><span>REAL INGREDIENTS. NOTHING TO
+                HIDE.</span></div>
           </div>
           <div class="col-lg-6 hero-visual reveal">
-            <div class="hero-photo-wrap"><img class="hero-photo" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=90" alt="Colorful fresh salad bowl with greens and vegetables"><div class="photo-stamp"><span>FRESH</span><strong>by<br>nature</strong><i class="bi bi-flower3"></i></div></div>
-            <div class="floating-note"><span class="note-icon"><i class="bi bi-sun"></i></span><span><b>A brighter kind<br>of everyday.</b><small>MADE WITH INTENTION</small></span></div>
+            <div class="hero-photo-wrap"><img class="hero-photo"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=90"
+                alt="Colorful fresh salad bowl with greens and vegetables">
+              <div class="photo-stamp"><span>FRESH</span><strong>by<br>nature</strong><i class="bi bi-flower3"></i>
+              </div>
+            </div>
+            <div class="floating-note"><span class="note-icon"><i class="bi bi-sun"></i></span><span><b>A brighter
+                  kind<br>of everyday.</b><small>MADE WITH INTENTION</small></span></div>
             <span class="hero-orbit orbit-one"></span><span class="hero-orbit orbit-two"></span>
           </div>
         </div>
-        <div class="hero-bottom"><span>01 — 04</span><span class="scroll-cue">SCROLL TO FEEL GOOD <i class="bi bi-arrow-down"></i></span><span>EST. WITH LOVE · 2024</span></div>
+        <div class="hero-bottom"><span>01 — 04</span><span class="scroll-cue">SCROLL TO FEEL GOOD <i
+              class="bi bi-arrow-down"></i></span><span>EST. WITH LOVE · 2024</span></div>
       </div>
     </section>
 
-    <section class="ticker" aria-label="Our values"><div class="ticker-track"><span>FRESH IS A FEELING <b>✳</b> EAT THE GOOD STUFF <b>✳</b> ROOTED IN REAL FOOD <b>✳</b> FEEL-GOOD, EVERY DAY <b>✳</b> FRESH IS A FEELING <b>✳</b> EAT THE GOOD STUFF <b>✳</b> ROOTED IN REAL FOOD <b>✳</b> FEEL-GOOD, EVERY DAY <b>✳</b></span></div></section>
+    <section class="ticker" aria-label="Our values">
+      <div class="ticker-track"><span>FRESH IS A FEELING <b>✳</b> EAT THE GOOD STUFF <b>✳</b> ROOTED IN REAL FOOD
+          <b>✳</b> FEEL-GOOD, EVERY DAY <b>✳</b> FRESH IS A FEELING <b>✳</b> EAT THE GOOD STUFF <b>✳</b> ROOTED IN REAL
+          FOOD <b>✳</b> FEEL-GOOD, EVERY DAY <b>✳</b></span></div>
+    </section>
 
     <section class="intro-section section-pad" id="story">
       <div class="container">
         <div class="row align-items-end gy-4">
-          <div class="col-lg-7"><div class="eyebrow reveal"><span class="eyebrow-line"></span> A DIFFERENT KIND OF DELICIOUS</div><h2 class="section-title reveal">Good food should<br>do <em>good things.</em></h2></div>
-          <div class="col-lg-4 offset-lg-1"><p class="intro-text reveal">We believe the best meals start with ingredients that have a story — grown with care, prepared with purpose, and brought together to make you feel your best.</p><a class="text-link dark-link reveal" href="#ritual">Get to know us <span>↗</span></a></div>
+          <div class="col-lg-7">
+            <div class="eyebrow reveal"><span class="eyebrow-line"></span> A DIFFERENT KIND OF DELICIOUS</div>
+            <h2 class="section-title reveal">Good food should<br>do <em>good things.</em></h2>
+          </div>
+          <div class="col-lg-4 offset-lg-1">
+            <p class="intro-text reveal">We believe the best meals start with ingredients that have a story — grown with
+              care, prepared with purpose, and brought together to make you feel your best.</p><a
+              class="text-link dark-link reveal" href="#ritual">Get to know us <span>↗</span></a>
+          </div>
         </div>
         <div class="story-grid reveal">
-          <div class="story-image image-large"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1100&q=85" alt="Fresh leafy greens and vegetables"><span class="image-caption">01 / FROM THE EARTH</span></div>
-          <div class="story-side"><div class="story-image image-small"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85" alt="Balanced healthy meal prepared with fresh ingredients"></div><div class="story-quote"><span class="quote-mark">“</span><p>Feel good food.<br><em>Without the fuss.</em></p><span class="quote-byline">THE VERDANT WAY</span></div></div>
+          <div class="story-image image-large"><img
+              src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1100&q=85"
+              alt="Fresh leafy greens and vegetables"><span class="image-caption">01 / FROM THE EARTH</span></div>
+          <div class="story-side">
+            <div class="story-image image-small"><img
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=900&q=85"
+                alt="Balanced healthy meal prepared with fresh ingredients"></div>
+            <div class="story-quote"><span class="quote-mark">“</span>
+              <p>Feel good food.<br><em>Without the fuss.</em></p><span class="quote-byline">THE VERDANT WAY</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="menu-section section-pad" id="menu">
       <div class="container">
-        <div class="menu-heading row align-items-end gy-3"><div class="col-lg-7"><div class="eyebrow light-eyebrow reveal"><span class="eyebrow-line"></span> MADE FRESH, ALWAYS</div><h2 class="section-title light-title reveal">A menu with<br><em>good intentions.</em></h2></div><div class="col-lg-4 offset-lg-1"><p class="menu-intro reveal">Colorful, craveable, and full of the things your body loves. Find your new favorite.</p></div></div>
-        <div class="filter-row reveal" role="group" aria-label="Filter menu items"><button class="filter-btn active" data-filter="all">All goodness <span>04</span></button><button class="filter-btn" data-filter="bowls">Nourish bowls</button><button class="filter-btn" data-filter="salads">Fresh salads</button><button class="filter-btn" data-filter="drinks">Sips & smoothies</button></div>
-        <div class="row g-4 menu-grid">
-          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="bowls"><article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=85" alt="Garden glow bowl"><span class="food-tag">FAN FAVORITE</span><button class="quick-add" aria-label="Add Garden Glow to your bag" data-name="Garden Glow"><i class="bi bi-plus-lg"></i></button></div><div class="food-info"><div class="food-meta"><span>NOURISH BOWL</span><span>৳ 480</span></div><h3>Garden Glow</h3><p>Avocado, quinoa, greens, crunchy seeds & lemon tahini.</p></div></article></div>
-          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="salads"><article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=85" alt="Green goddess salad"><button class="quick-add" aria-label="Add Green Goddess to your bag" data-name="Green Goddess"><i class="bi bi-plus-lg"></i></button></div><div class="food-info"><div class="food-meta"><span>FRESH SALAD</span><span>৳ 420</span></div><h3>Green Goddess</h3><p>Garden greens, cucumber, herbs & a creamy green dressing.</p></div></article></div>
-          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="bowls"><article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=700&q=85" alt="Harvest sunshine bowl"><span class="food-tag tag-soft">PLANT POWER</span><button class="quick-add" aria-label="Add Harvest Sunshine to your bag" data-name="Harvest Sunshine"><i class="bi bi-plus-lg"></i></button></div><div class="food-info"><div class="food-meta"><span>NOURISH BOWL</span><span>৳ 520</span></div><h3>Harvest Sunshine</h3><p>Roasted sweet potato, chickpeas, grains & smoky hummus.</p></div></article></div>
-          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="drinks"><article class="food-card"><div class="food-image"><img src="https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=700&q=85" alt="Fresh green smoothie"><button class="quick-add" aria-label="Add Green Dream to your bag" data-name="Green Dream"><i class="bi bi-plus-lg"></i></button></div><div class="food-info"><div class="food-meta"><span>FRESH SMOOTHIE</span><span>৳ 280</span></div><h3>Green Dream</h3><p>Spinach, pineapple, green apple & a little ginger zing.</p></div></article></div>
+        <div class="menu-heading row align-items-end gy-3">
+          <div class="col-lg-7">
+            <div class="eyebrow light-eyebrow reveal"><span class="eyebrow-line"></span> MADE FRESH, ALWAYS</div>
+            <h2 class="section-title light-title reveal">A menu with<br><em>good intentions.</em></h2>
+          </div>
+          <div class="col-lg-4 offset-lg-1">
+            <p class="menu-intro reveal">Colorful, craveable, and full of the things your body loves. Find your new
+              favorite.</p>
+          </div>
         </div>
-        <div class="menu-bottom reveal"><span>GOOD THINGS, MADE DAILY.</span><a href="#newsletter" class="btn-pill btn-outline-light">Get the fresh list <i class="bi bi-arrow-up-right"></i></a></div>
+        <div class="filter-row reveal" role="group" aria-label="Filter menu items"><button class="filter-btn active"
+            data-filter="all">All goodness <span>04</span></button><button class="filter-btn"
+            data-filter="bowls">Nourish bowls</button><button class="filter-btn" data-filter="salads">Fresh
+            salads</button><button class="filter-btn" data-filter="drinks">Sips & smoothies</button></div>
+        <div class="row g-4 menu-grid">
+          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="bowls">
+            <article class="food-card">
+              <div class="food-image"><img
+                  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=85"
+                  alt="Garden glow bowl"><span class="food-tag">FAN FAVORITE</span><button class="quick-add"
+                  aria-label="Add Garden Glow to your bag" data-name="Garden Glow"><i
+                    class="bi bi-plus-lg"></i></button></div>
+              <div class="food-info">
+                <div class="food-meta"><span>NOURISH BOWL</span><span>৳ 480</span></div>
+                <h3>Garden Glow</h3>
+                <p>Avocado, quinoa, greens, crunchy seeds & lemon tahini.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="salads">
+            <article class="food-card">
+              <div class="food-image"><img
+                  src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=700&q=85"
+                  alt="Green goddess salad"><button class="quick-add" aria-label="Add Green Goddess to your bag"
+                  data-name="Green Goddess"><i class="bi bi-plus-lg"></i></button></div>
+              <div class="food-info">
+                <div class="food-meta"><span>FRESH SALAD</span><span>৳ 420</span></div>
+                <h3>Green Goddess</h3>
+                <p>Garden greens, cucumber, herbs & a creamy green dressing.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="bowls">
+            <article class="food-card">
+              <div class="food-image"><img
+                  src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=700&q=85"
+                  alt="Harvest sunshine bowl"><span class="food-tag tag-soft">PLANT POWER</span><button
+                  class="quick-add" aria-label="Add Harvest Sunshine to your bag" data-name="Harvest Sunshine"><i
+                    class="bi bi-plus-lg"></i></button></div>
+              <div class="food-info">
+                <div class="food-meta"><span>NOURISH BOWL</span><span>৳ 520</span></div>
+                <h3>Harvest Sunshine</h3>
+                <p>Roasted sweet potato, chickpeas, grains & smoky hummus.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3 menu-item reveal" data-category="drinks">
+            <article class="food-card">
+              <div class="food-image"><img
+                  src="https://images.unsplash.com/photo-1502741224143-90386d7f8c82?auto=format&fit=crop&w=700&q=85"
+                  alt="Fresh green smoothie"><button class="quick-add" aria-label="Add Green Dream to your bag"
+                  data-name="Green Dream"><i class="bi bi-plus-lg"></i></button></div>
+              <div class="food-info">
+                <div class="food-meta"><span>FRESH SMOOTHIE</span><span>৳ 280</span></div>
+                <h3>Green Dream</h3>
+                <p>Spinach, pineapple, green apple & a little ginger zing.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="menu-bottom reveal"><span>GOOD THINGS, MADE DAILY.</span><a href="#newsletter"
+            class="btn-pill btn-outline-light">Get the fresh list <i class="bi bi-arrow-up-right"></i></a></div>
       </div>
     </section>
 
-    <section class="ritual-section section-pad" id="ritual"><div class="container"><div class="row align-items-center gy-5"><div class="col-lg-5"><div class="eyebrow reveal"><span class="eyebrow-line"></span> THE VERDANT RITUAL</div><h2 class="section-title reveal">A little more<br><em>life in every bite.</em></h2><p class="ritual-copy reveal">Healthy isn't a finish line. It's the small, lovely choices you make every day. We're here to make those choices delicious.</p><div class="ritual-points"><div class="ritual-point reveal"><span>01</span><div><h3>Ingredients with integrity</h3><p>Seasonal produce, honest ingredients, no unnecessary extras.</p></div><i class="bi bi-arrow-up-right"></i></div><div class="ritual-point reveal"><span>02</span><div><h3>Made to make you feel good</h3><p>Thoughtful combinations that bring flavor and balance together.</p></div><i class="bi bi-arrow-up-right"></i></div><div class="ritual-point reveal"><span>03</span><div><h3>A lighter footprint</h3><p>Mindful choices, less waste, and respect for where food begins.</p></div><i class="bi bi-arrow-up-right"></i></div></div></div><div class="col-lg-6 offset-lg-1 ritual-visual reveal"><div class="ritual-photo"><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1100&q=90" alt="Fresh vegetables and healthy ingredients on a table"></div><div class="ritual-badge"><span>GOOD</span><b>for<br>you</b><span>GOOD FOR THE PLANET</span></div><div class="ritual-caption">FRESH THINKING, FROM ROOT TO LEAF.</div></div></div></div></section>
+    <section class="ritual-section section-pad" id="ritual">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-5">
+            <div class="eyebrow reveal"><span class="eyebrow-line"></span> THE VERDANT RITUAL</div>
+            <h2 class="section-title reveal">A little more<br><em>life in every bite.</em></h2>
+            <p class="ritual-copy reveal">Healthy isn't a finish line. It's the small, lovely choices you make every
+              day. We're here to make those choices delicious.</p>
+            <div class="ritual-points">
+              <div class="ritual-point reveal"><span>01</span>
+                <div>
+                  <h3>Ingredients with integrity</h3>
+                  <p>Seasonal produce, honest ingredients, no unnecessary extras.</p>
+                </div><i class="bi bi-arrow-up-right"></i>
+              </div>
+              <div class="ritual-point reveal"><span>02</span>
+                <div>
+                  <h3>Made to make you feel good</h3>
+                  <p>Thoughtful combinations that bring flavor and balance together.</p>
+                </div><i class="bi bi-arrow-up-right"></i>
+              </div>
+              <div class="ritual-point reveal"><span>03</span>
+                <div>
+                  <h3>A lighter footprint</h3>
+                  <p>Mindful choices, less waste, and respect for where food begins.</p>
+                </div><i class="bi bi-arrow-up-right"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 offset-lg-1 ritual-visual reveal">
+            <div class="ritual-photo"><img
+                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1100&q=90"
+                alt="Fresh vegetables and healthy ingredients on a table"></div>
+            <div class="ritual-badge"><span>GOOD</span><b>for<br>you</b><span>GOOD FOR THE PLANET</span></div>
+            <div class="ritual-caption">FRESH THINKING, FROM ROOT TO LEAF.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="journal-section section-pad" id="journal"><div class="container"><div class="journal-top"><div><div class="eyebrow reveal"><span class="eyebrow-line"></span> NOTES FROM THE GREEN SIDE</div><h2 class="section-title reveal">A fresh little<br><em>perspective.</em></h2></div><a class="text-link dark-link reveal" href="#newsletter">More from our journal <span>↗</span></a></div><div class="row g-4"><div class="col-md-6 reveal"><a class="journal-card" href="#newsletter"><div class="journal-image"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=85" alt="Colorful balanced lunch"><span>THE EVERYDAY EDIT · 4 MIN READ</span></div><div class="journal-card-bottom"><h3>Small rituals, big energy.</h3><i class="bi bi-arrow-up-right"></i></div></a></div><div class="col-md-6 reveal"><a class="journal-card" href="#newsletter"><div class="journal-image"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="Fresh ingredients for a colorful meal"><span>FROM THE KITCHEN · 3 MIN READ</span></div><div class="journal-card-bottom"><h3>Make room for more greens.</h3><i class="bi bi-arrow-up-right"></i></div></a></div></div></div></section>
+    <section class="journal-section section-pad" id="journal">
+      <div class="container">
+        <div class="journal-top">
+          <div>
+            <div class="eyebrow reveal"><span class="eyebrow-line"></span> NOTES FROM THE GREEN SIDE</div>
+            <h2 class="section-title reveal">A fresh little<br><em>perspective.</em></h2>
+          </div><a class="text-link dark-link reveal" href="#newsletter">More from our journal <span>↗</span></a>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 reveal"><a class="journal-card" href="#newsletter">
+              <div class="journal-image"><img
+                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1000&q=85"
+                  alt="Colorful balanced lunch"><span>THE EVERYDAY EDIT · 4 MIN READ</span></div>
+              <div class="journal-card-bottom">
+                <h3>Small rituals, big energy.</h3><i class="bi bi-arrow-up-right"></i>
+              </div>
+            </a></div>
+          <div class="col-md-6 reveal"><a class="journal-card" href="#newsletter">
+              <div class="journal-image"><img
+                  src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+                  alt="Fresh ingredients for a colorful meal"><span>FROM THE KITCHEN · 3 MIN READ</span></div>
+              <div class="journal-card-bottom">
+                <h3>Make room for more greens.</h3><i class="bi bi-arrow-up-right"></i>
+              </div>
+            </a></div>
+        </div>
+      </div>
+    </section>
 
-    <section class="newsletter-section" id="newsletter"><div class="container"><div class="newsletter-inner reveal"><div><div class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> A NOTE FROM NATURE</div><h2>Fresh things<br>are <em>coming.</em></h2><p>Good reads, new menu drops, and little reminders to feel good. Straight to your inbox.</p></div><form class="newsletter-form" id="newsletterForm"><label class="visually-hidden" for="emailInput">Your email address</label><div class="email-field"><input id="emailInput" type="email" placeholder="Your email address" required><button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-up-right"></i></button></div><small>NO SPAM. JUST THE GOOD STUFF. UNSUBSCRIBE ANYTIME.</small><div class="form-feedback" id="formFeedback" aria-live="polite"></div></form><span class="newsletter-spark">✳</span></div></div></section>
+    <section class="newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-inner reveal">
+          <div>
+            <div class="eyebrow light-eyebrow"><span class="eyebrow-line"></span> A NOTE FROM NATURE</div>
+            <h2>Fresh things<br>are <em>coming.</em></h2>
+            <p>Good reads, new menu drops, and little reminders to feel good. Straight to your inbox.</p>
+          </div>
+          <form class="newsletter-form" id="newsletterForm"><label class="visually-hidden" for="emailInput">Your email
+              address</label>
+            <div class="email-field"><input id="emailInput" type="email" placeholder="Your email address"
+                required><button type="submit" aria-label="Subscribe"><i class="bi bi-arrow-up-right"></i></button>
+            </div><small>NO SPAM. JUST THE GOOD STUFF. UNSUBSCRIBE ANYTIME.</small>
+            <div class="form-feedback" id="formFeedback" aria-live="polite"></div>
+          </form><span class="newsletter-spark">✳</span>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer"><div class="container"><div class="footer-main"><a class="brand footer-brand" href="#home"><span class="brand-mark"><i class="bi bi-flower1"></i></span>VERDANT<span class="brand-dot">.</span></a><p>Eat well. Feel everything.<br>Leave a little good behind.</p><div class="footer-links"><a href="#story">Our philosophy</a><a href="#menu">The menu</a><a href="#journal">Journal</a><a href="mailto:hello@verdant.example">Say hello</a></div><div class="social-links"><a href="#home" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a href="#home" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a><a href="#home" aria-label="Facebook"><i class="bi bi-facebook"></i></a></div></div><div class="footer-bottom"><span>© 2024 VERDANT. MADE WITH CARE.</span><span>GOOD FOOD GROWS GOOD THINGS. <i class="bi bi-flower3"></i></span><a href="#home">BACK TO TOP ↑</a></div></div></footer>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main"><a class="brand footer-brand" href="#home"><span class="brand-mark"><i
+              class="bi bi-flower1"></i></span>VERDANT<span class="brand-dot">.</span></a>
+        <p>Eat well. Feel everything.<br>Leave a little good behind.</p>
+        <div class="footer-links"><a href="#story">Our philosophy</a><a href="#menu">The menu</a><a
+            href="#journal">Journal</a><a href="mailto:hello@verdant.example">Say hello</a></div>
+        <div class="social-links"><a href="#home" aria-label="Instagram"><i class="bi bi-instagram"></i></a><a
+            href="#home" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a><a href="#home"
+            aria-label="Facebook"><i class="bi bi-facebook"></i></a></div>
+      </div>
+      <div class="footer-bottom"><span>© 2024 VERDANT. MADE WITH CARE.</span><span>GOOD FOOD GROWS GOOD THINGS. <i
+            class="bi bi-flower3"></i></span><a href="#home">BACK TO TOP ↑</a></div>
+    </div>
+  </footer>
 
 
   <div class="cart-backdrop" id="cartBackdrop" hidden></div>
   <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartTitle" aria-hidden="true">
-    <div class="cart-header"><div><span class="cart-kicker">A LITTLE GOODNESS</span><h2 id="cartTitle">Your bag <span id="cartHeaderCount">(0)</span></h2></div><button class="cart-close" id="closeCart" aria-label="Close shopping bag"><i class="bi bi-x-lg"></i></button></div>
-    <div class="cart-body"><div class="cart-empty" id="cartEmpty"><i class="bi bi-basket2"></i><h3>Your bag is feeling light.</h3><p>Add something delicious from our menu to get started.</p><button class="btn-pill btn-leaf" id="continueShopping">Explore the menu <i class="bi bi-arrow-up-right"></i></button></div><div class="cart-lines" id="cartLines"></div></div>
-    <div class="cart-footer" id="cartFooter" hidden><div class="cart-subtotal"><span>Subtotal</span><strong id="cartSubtotal">৳ 0</strong></div><p class="cart-note">Delivery fees, if any, are confirmed when your order is arranged.</p><button class="checkout-button" id="checkoutButton">Continue to checkout <i class="bi bi-arrow-right"></i></button><button class="cart-continue" id="keepShopping">Keep browsing</button></div>
+    <div class="cart-header">
+      <div><span class="cart-kicker">A LITTLE GOODNESS</span>
+        <h2 id="cartTitle">Your bag <span id="cartHeaderCount">(0)</span></h2>
+      </div><button class="cart-close" id="closeCart" aria-label="Close shopping bag"><i
+          class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty"><i class="bi bi-basket2"></i>
+        <h3>Your bag is feeling light.</h3>
+        <p>Add something delicious from our menu to get started.</p><button class="btn-pill btn-leaf"
+          id="continueShopping">Explore the menu <i class="bi bi-arrow-up-right"></i></button>
+      </div>
+      <div class="cart-lines" id="cartLines"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" hidden>
+      <div class="cart-subtotal"><span>Subtotal</span><strong id="cartSubtotal">৳ 0</strong></div>
+      <p class="cart-note">Delivery fees, if any, are confirmed when your order is arranged.</p><button
+        class="checkout-button" id="checkoutButton">Continue to checkout <i
+          class="bi bi-arrow-right"></i></button><button class="cart-continue" id="keepShopping">Keep browsing</button>
+    </div>
   </aside>
-  <div class="checkout-backdrop" id="checkoutBackdrop" hidden><section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><button class="cart-close checkout-close" id="closeCheckout" aria-label="Close checkout"><i class="bi bi-x-lg"></i></button><span class="cart-kicker">ALMOST THERE</span><h2 id="checkoutTitle">Make it a good day.</h2><p class="checkout-intro">Share your details and we'll prepare your order.</p>
-    <form id="checkoutForm" class="checkout-form"><label for="customerName">Your name</label><input id="customerName" name="customerName" autocomplete="name" required placeholder="Full name"><label for="customerPhone">Phone number</label><input id="customerPhone" name="customerPhone" type="tel" autocomplete="tel" required placeholder="+880 1XXXXXXXXX" pattern="[+0-9 ()-]{7,20}"><label for="deliveryAddress">Delivery address</label><textarea id="deliveryAddress" name="deliveryAddress" rows="2" autocomplete="street-address" required placeholder="House, road, area"></textarea><label for="paymentMethod">Payment method</label><select id="paymentMethod" name="paymentMethod"><option>Cash on delivery</option><option>Pay at pickup</option></select><div class="checkout-total"><span>Order total</span><strong id="checkoutTotal">৳ 0</strong></div><button class="checkout-button" type="submit">Place demo order <i class="bi bi-arrow-right"></i></button><small class="checkout-disclaimer">Demo checkout only — no payment is taken and no order is sent to a restaurant.</small><div class="checkout-feedback" id="checkoutFeedback" role="status" aria-live="polite"></div></form>
-  </section></div>
+  <div class="checkout-backdrop" id="checkoutBackdrop" hidden>
+    <section class="checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><button
+        class="cart-close checkout-close" id="closeCheckout" aria-label="Close checkout"><i
+          class="bi bi-x-lg"></i></button><span class="cart-kicker">ALMOST THERE</span>
+      <h2 id="checkoutTitle">Make it a good day.</h2>
+      <p class="checkout-intro">Share your details and send your order straight to us on WhatsApp.</p>
+      <form id="checkoutForm" class="checkout-form"><label for="customerName">Your name</label><input id="customerName"
+          name="customerName" autocomplete="name" required placeholder="Full name"><label for="customerPhone">Phone
+          number</label><input id="customerPhone" name="customerPhone" type="tel" autocomplete="tel" required
+          placeholder="+880 1XXXXXXXXX" pattern="[+0-9 ()-]{7,20}"><label for="deliveryAddress">Delivery
+          address</label><textarea id="deliveryAddress" name="deliveryAddress" rows="2" autocomplete="street-address"
+          required placeholder="House, road, area"></textarea><label for="paymentMethod">Payment method</label><select
+          id="paymentMethod" name="paymentMethod">
+          <option>Cash on delivery</option>
+          <option>Pay at pickup</option>
+          <option>Discuss payment on WhatsApp</option>
+        </select>
+        <div class="checkout-total"><span>Order total</span><strong id="checkoutTotal">৳ 0</strong></div><button
+          class="checkout-button" type="submit">Send order via WhatsApp <i class="bi bi-whatsapp"></i></button><small
+          class="checkout-disclaimer">Your WhatsApp app will open with your order details ready to send. No online
+          payment is collected on this website.</small>
+        <div class="checkout-feedback" id="checkoutFeedback" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </div>
 
-  <div class="bag-toast" id="bagToast" role="status" aria-live="polite"><i class="bi bi-bag-check"></i><span id="toastMessage">Added to your bag</span></div>
-  <button class="bag-counter" id="bagCounter" type="button" aria-label="Open shopping bag, 0 items" aria-controls="cartDrawer" aria-expanded="false"><i class="bi bi-bag"></i><span id="bagCount">0</span></button>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <div class="bag-toast" id="bagToast" role="status" aria-live="polite"><i class="bi bi-bag-check"></i><span
+      id="toastMessage">Added to your bag</span></div>
+  <button class="bag-counter" id="bagCounter" type="button" aria-label="Open shopping bag, 0 items"
+    aria-controls="cartDrawer" aria-expanded="false"><i class="bi bi-bag"></i><span id="bagCount">0</span></button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
