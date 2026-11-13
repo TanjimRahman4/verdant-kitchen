@@ -17,53 +17,7 @@ function openCart(){cartDrawer.classList.add('is-open');cartDrawer.setAttribute(
 function closeCart(){cartDrawer.classList.remove('is-open');cartDrawer.setAttribute('aria-hidden','true');cartBackdrop.hidden=true;bagCounter.setAttribute('aria-expanded','false');document.body.classList.remove('cart-open')}
 bagCounter.addEventListener('click',openCart);$('closeCart').addEventListener('click',closeCart);cartBackdrop.addEventListener('click',closeCart);$('continueShopping').addEventListener('click',()=>{closeCart();$('menu').scrollIntoView({behavior:'smooth'})});$('keepShopping').addEventListener('click',closeCart);
 $('checkoutButton').addEventListener('click',()=>{if(!cart.size)return;$('checkoutTotal').textContent=money(total());$('checkoutBackdrop').hidden=false;$('customerName').focus()});function closeCheckout(){$('checkoutBackdrop').hidden=true}$('closeCheckout').addEventListener('click',closeCheckout);$('checkoutBackdrop').addEventListener('click',e=>{if(e.target===$('checkoutBackdrop'))closeCheckout()});
-// Set this to your WhatsApp Business number in international format, digits only.
-// Bangladesh example: 8801XXXXXXXXX (do not include +, spaces, or dashes).
-const WHATSAPP_BUSINESS_NUMBER = '8801951848572';
-
-$('checkoutForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const form=e.currentTarget;
-  if(!form.reportValidity()||!cart.size)return;
-
-  if(!/^\d{8,15}$/.test(WHATSAPP_BUSINESS_NUMBER)){
-    $('checkoutFeedback').textContent='Please add your WhatsApp Business number in script.js first (WHATSAPP_BUSINESS_NUMBER).';
-    return;
-  }
-
-  const order={
-    id:`VRD-${Date.now().toString().slice(-7)}`,
-    customer:form.elements.customerName.value.trim(),
-    phone:form.elements.customerPhone.value.trim(),
-    address:form.elements.deliveryAddress.value.trim(),
-    payment:form.elements.paymentMethod.value,
-    items:[...cart].map(([name,item])=>({name,quantity:item.quantity,price:item.price})),
-    total:total()
-  };
-  const lines=[
-    '*NEW VERDANT ORDER*',
-    `Order: ${order.id}`,
-    '',
-    `*Name:* ${order.customer}`,
-    `*Customer phone:* ${order.phone}`,
-    `*Delivery address:* ${order.address}`,
-    `*Preferred payment:* ${order.payment}`,
-    '',
-    '*ORDER ITEMS*',
-    ...order.items.map(item=>`• ${item.name} × ${item.quantity} — ${money(item.price*item.quantity)}`),
-    '',
-    `*Subtotal: ${money(order.total)}*`,
-    '',
-    'Please confirm availability, delivery fee, and final total. Thank you!'
-  ];
-  const url=`https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
-  window.open(url,'_blank','noopener,noreferrer');
-  $('checkoutFeedback').textContent='WhatsApp is opening with your order. Press Send in WhatsApp to submit it to us.';
-  cart.clear();
-  renderCart();
-  form.reset();
-  setTimeout(()=>{closeCheckout();closeCart()},1800);
-});
+$('checkoutForm').addEventListener('submit',e=>{e.preventDefault();const form=e.currentTarget;if(!form.reportValidity()||!cart.size)return;const order={id:`VRD-${Date.now().toString().slice(-7)}`,customer:form.elements.customerName.value.trim(),phone:form.elements.customerPhone.value.trim(),address:form.elements.deliveryAddress.value.trim(),payment:form.elements.paymentMethod.value,items:[...cart].map(([name,item])=>({name,quantity:item.quantity,price:item.price})),total:total(),createdAt:new Date().toISOString()};try{const orders=JSON.parse(localStorage.getItem('verdantDemoOrders')||'[]');orders.push(order);localStorage.setItem('verdantDemoOrders',JSON.stringify(orders))}catch(err){console.warn('Could not save demo order in this browser',err)}$('checkoutFeedback').textContent=`Thank you, ${order.customer}! Demo order ${order.id} has been saved in this browser. No payment was taken.`;cart.clear();renderCart();form.reset();setTimeout(()=>{closeCheckout();closeCart()},3500)});
 const newsletterForm=$('newsletterForm'),formFeedback=$('formFeedback');newsletterForm.addEventListener('submit',e=>{e.preventDefault();const email=$('emailInput');if(!email.checkValidity()){email.reportValidity();return}formFeedback.textContent='You’re on the list. A little goodness is headed your way!';newsletterForm.reset()});
 document.querySelectorAll('#mainNav .nav-link,#mainNav .nav-cta').forEach(link=>link.addEventListener('click',()=>{const nav=$('mainNav');if(nav.classList.contains('show')&&window.bootstrap)bootstrap.Collapse.getOrCreateInstance(nav).hide()}));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('checkoutBackdrop').hidden)closeCheckout();else if(cartDrawer.classList.contains('is-open'))closeCart()}});renderCart();

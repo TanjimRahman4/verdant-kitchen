@@ -2,7 +2,7 @@ VERDANT — WHATSAPP ORDER SETUP
 
 1. Open script.js.
 2. Find this line:
-   const WHATSAPP_BUSINESS_NUMBER = '8801951848572';
+   const WHATSAPP_BUSINESS_NUMBER = '8801XXXXXXXXX';
 3. Replace the placeholder with your WhatsApp Business number in international format,
    digits only. Bangladesh example: 8801XXXXXXXXX.
    Do not include +, spaces, brackets, or hyphens.
