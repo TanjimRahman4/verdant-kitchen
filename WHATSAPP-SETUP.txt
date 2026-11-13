@@ -1,0 +1,26 @@
+VERDANT — WHATSAPP ORDER SETUP
+
+1. Open script.js.
+2. Find this line:
+   const WHATSAPP_BUSINESS_NUMBER = '8801951848572';
+3. Replace the placeholder with your WhatsApp Business number in international format,
+   digits only. Bangladesh example: 8801XXXXXXXXX.
+   Do not include +, spaces, brackets, or hyphens.
+4. Save and upload the website files to your hosting.
+
+HOW IT WORKS
+- Customers add meals to the bag.
+- They enter their name, phone number, delivery address, and preferred payment method.
+- The website opens WhatsApp with the order summary pre-filled.
+- The customer must press Send in WhatsApp to actually send the order.
+- You confirm delivery fee, availability, and payment details directly with them.
+
+PAYMENTS
+This version does not collect card or mobile-wallet payments on the website.
+Customers can choose cash on delivery, pay at pickup, or discuss payment on WhatsApp.
+Never ask customers to enter card details into this website.
+
+IMPORTANT
+The WhatsApp number must be your business's WhatsApp number. The placeholder will not work
+until you replace it. The website itself does not automatically receive or store orders;
+the customer sends the prepared message from WhatsApp.
